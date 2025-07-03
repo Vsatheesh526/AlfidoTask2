@@ -13,68 +13,105 @@
             background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .navbar-brand, .nav-link {
+        .navbar-brand {
             color: white !important;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        .nav-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .nav-item-block {
+            padding: 8px 15px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            text-align: center;
+            margin: 2px 0;
+        }
+        .nav-item-block:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .nav-link-block {
+            color: white;
+            text-decoration: none;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .navbar-brand:hover, .nav-link:hover {
-            color: #f8f9fa !important;
-            text-shadow: 0 0 5px rgba(255,255,255,0.5);
-        }
+        .home-block { background-color: rgba(255,255,255,0.15); }
+        .about-block { background-color: rgba(255,255,255,0.15); }
+        .linkedin-block { background-color: #0A66C2; }
+        .github-block { background-color: #333; }
+        .portfolio-block { background-color: #6a11cb; }
+        .contact-block { background-color: #2575fc; }
         .navbar-toggler {
             border-color: rgba(255,255,255,0.5);
         }
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
-        .active {
-            font-weight: 600;
-            position: relative;
-        }
-        .active::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 15%;
-            width: 70%;
-            height: 2px;
-            background-color: white;
-        }
-        .portfolio-btn {
-            margin-left: 10px;
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-        .portfolio-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        @media (max-width: 992px) {
+            .nav-block {
+                gap: 5px;
+                margin-top: 10px;
+            }
+            .nav-item-block {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Responsive Navigation Bar -->
+    <!-- Responsive Navigation Bar with Block Links -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-code me-2"></i>Satheesh Vadla
+                <i class="fas fa-code me-2"></i>Satheesh V.
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home"><i class="fas fa-home me-1"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about"><i class="fas fa-user me-1"></i> About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link portfolio-btn btn btn-outline-light" href="https://vsatheesh526.github.io/Portfolio_Satheesh-/" target="_blank">
-                            <i class="fas fa-external-link-alt me-1"></i> Live Portfolio
+                <div class="nav-block ms-auto">
+                    <!-- Main Navigation Blocks -->
+                    <div class="nav-item-block home-block">
+                        <a class="nav-link-block" href="#home">
+                            <i class="fas fa-home"></i> Home
                         </a>
-                    </li>
-                </ul>
+                    </div>
+                    <div class="nav-item-block about-block">
+                        <a class="nav-link-block" href="#about">
+                            <i class="fas fa-user"></i> About
+                        </a>
+                    </div>
+                    
+                    <!-- Web URL Blocks -->
+                    <div class="nav-item-block linkedin-block">
+                        <a class="nav-link-block" href="https://linkedin.com/in/yourprofile" target="_blank">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                    <div class="nav-item-block github-block">
+                        <a class="nav-link-block" href="https://github.com/yourusername" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                    <div class="nav-item-block portfolio-block">
+                        <a class="nav-link-block" href="https://vsatheesh526.github.io/Portfolio_Satheesh-/" target="_blank">
+                            <i class="fas fa-briefcase"></i> Portfolio
+                        </a>
+                    </div>
+                    <div class="nav-item-block contact-block">
+                        <a class="nav-link-block" href="#contact">
+                            <i class="fas fa-envelope"></i> Contact
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -88,43 +125,20 @@
         
         <section id="about" class="py-5">
             <h2>About Me</h2>
-            <p>
-
-
-Hi, I'm Satheesh Vadla, a passionate and enthusiastic Full Stack Developer with hands-on experience in building real-world applications using the MERN stack. I recently completed an E-commerce Food Delivery app called SpiceZone, which includes user and admin dashboards, full CRUD operations, authentication, and even integrates AWS S3 for storage.
+            <p>Hi, I'm Satheesh Vadla, a passionate and enthusiastic Full Stack Developer with hands-on experience in building real-world applications using the MERN stack. I recently completed an E-commerce Food Delivery app called SpiceZone, which includes user and admin dashboards, full CRUD operations, authentication, and even integrates AWS S3 for storage.
 
 Though I'm a fresher, I’ve built multiple projects that reflect my understanding of frontend and backend development. I enjoy learning new technologies, solving problems, and working in teams. Currently, I'm exploring cloud technologies, React, and advanced JavaScript practices.
 
-I believe in growing through real-world experience and am excited to contribute to impactful tech solutions!
-
-</p>
+I believe in growing through real-world experience and am excited to contribute to impactful tech solutions!.</p>
+        </section>
+        
+        <section id="contact" class="py-5">
+            <h2>Contact Me</h2>
+            <p>Let's connect and build something amazing together...</p>
         </section>
     </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Add active class to current section in viewport
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link:not(.btn)');
-            
-            window.addEventListener('scroll', function() {
-                let fromTop = window.scrollY + 100;
-                
-                navLinks.forEach(link => {
-                    let section = document.querySelector(link.hash);
-                    
-                    if (
-                        section.offsetTop <= fromTop &&
-                        section.offsetTop + section.offsetHeight > fromTop
-                    ) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
